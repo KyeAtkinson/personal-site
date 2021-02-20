@@ -81,15 +81,18 @@ const Container = styled.div`
 
       @media screen and (max-width: 1000px) {
         justify-content: center;
+
+        ul {
+          li {
+            margin: 5px;
+          }
+        }
       }
 
       @media screen and (max-width: 400px) {
         ul {
           margin: 10px;
           li {
-            margin: 0;
-            margin: 5px;
-
             svg {
               width: 60px;
             }
