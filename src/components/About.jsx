@@ -19,7 +19,7 @@ const Container = styled.div`
 
     @media screen and (max-width: 1000px) {
       flex-direction: column;
-      padding: 0;
+      padding: 3rem 0;
       .image {
         margin: 10px 0 10px 0;
       }
@@ -71,6 +71,7 @@ const Container = styled.div`
       p {
         color: white;
         max-width: 30rem;
+        margin-left: 10px;
       }
     }
 
@@ -87,6 +88,7 @@ const Container = styled.div`
           margin: 10px;
           li {
             margin: 0;
+            margin: 5px;
 
             svg {
               width: 60px;
@@ -100,12 +102,12 @@ const Container = styled.div`
         display: flex;
         padding: 0;
         flex-wrap: wrap;
+        justify-content: center;
 
         li {
           width: 90px;
           display: flex;
           justify-content: center;
-          margin-right: 5px;
           svg {
             height: 80px;
             width: 80px;
