@@ -33,6 +33,9 @@ const ModalContainer = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @media screen and (max-width: 1100px) {
+      width: 80vw;
+    }
   }
 
   h1 {
@@ -83,7 +86,7 @@ const ModalContainer = styled.div`
       font-size: 16px;
       color: rgb(0, 0, 32);
       outline: none;
-      width: 15rem;
+      width: 100%;
     }
 
     .form > input:focus,
@@ -93,11 +96,10 @@ const ModalContainer = styled.div`
 
     .form > textarea {
       height: 150px;
-      width: 15rem;
+      width: 100%;
       max-width: 300px;
       max-height: 100px;
       min-height: 50px;
-      min-width: 15rem;
     }
 
     .form > label {
