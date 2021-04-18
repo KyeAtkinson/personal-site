@@ -30,9 +30,11 @@ const ModalContainer = styled.div`
     width: 40vw;
     position: fixed;
     height: 80%;
+    max-height: 80%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    overflow-y: auto;
     @media screen and (max-width: 1100px) {
       width: 80vw;
     }
@@ -41,7 +43,7 @@ const ModalContainer = styled.div`
   h1 {
     margin: 0;
     text-align: center;
-    margin-top: 1rem;
+    margin: 2rem;
   }
 
   .close {
@@ -66,6 +68,7 @@ const ModalContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
     .form {
       display: flex;
       flex-direction: column;
@@ -115,10 +118,11 @@ const ModalContainer = styled.div`
       color: white;
       font-weight: 900;
       padding: 0 2rem;
+      background: #60988f;
     }
 
     .form > button:hover {
-      background-color: rgb(0, 0, 196);
+      background-color: orange;
     }
   }
 `;
@@ -161,38 +165,33 @@ const Modal = ({ closeModal }) => {
           </button>
         </div>
         <h1>Contact Form</h1>
-        <div className="form-container">
-          <form className="form" onSubmit={handleSubmit}>
-            <label>Name</label>
-            <input
-              placeholder="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+        {loader ? null : (
+          <div className="form-container">
+            <form className="form" onSubmit={handleSubmit}>
+              <label>Name</label>
+              <input
+                placeholder="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
 
-            <label>Email</label>
-            <input
-              placeholder="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+              <label>Email</label>
+              <input
+                placeholder="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-            <label>Message</label>
-            <textarea
-              placeholder="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            ></textarea>
-            <button
-              type="submit"
-              style={{
-                background: loader ? "rgb(76 76 76)" : "rgb(17 134 101)",
-              }}
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+              <label>Message</label>
+              <textarea
+                placeholder="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        )}
       </div>
     </ModalContainer>
   );
