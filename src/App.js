@@ -3,6 +3,7 @@ import UncontrolledLottie from "./components/UncontrolledLottie";
 import styled from "styled-components";
 import About from "./components/About";
 import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -79,7 +80,7 @@ const Container = styled.div`
   }
 
   .lottie {
-    z-index: 1000;
+    z-index: 3;
     position: absolute;
     right: 35%;
     top: 45%;
@@ -175,6 +176,7 @@ function App() {
           <About />
         </div>
         <Portfolio />
+        <Contact />
       </Segment>
     </AppContainer>
   );

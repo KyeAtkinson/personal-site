@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Me from "../images/me.jpg";
 import { ReactComponent as ReactLogo } from "../images/react.svg";
@@ -32,46 +32,50 @@ const Container = styled.div`
         border-radius: 50%;
         height: 20rem;
         border: solid 5px #42da9b;
+        margin: 0 5rem;
 
         @media screen and (max-width: 1000px) {
           height: 15rem;
           width: auto;
+          margin: 1rem 0;
         }
 
         @media screen and (max-width: 600px) {
           height: 10rem;
           width: auto;
+          margin: 0;
         }
       }
     }
 
     .about-text {
-      margin-left: 5rem;
-
-      @media screen and (max-width: 1000px) {
-        margin: 0;
-        h2 {
-          text-align: center;
-        }
-
-        p {
-          margin: 1.5rem auto;
-          padding: 5px;
-          max-width: 20rem;
-          line-height: 24px;
-        }
-      }
-
       h2 {
         color: white;
         margin: 0;
         font-size: 35px;
         font-weight: 900;
       }
-      p {
-        color: white;
-        max-width: 30rem;
-        margin-left: 10px;
+
+      .blurb {
+        display: flex;
+        justify-content: center;
+        p {
+          color: white;
+        }
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      margin: 0;
+      h2 {
+        text-align: center;
+      }
+
+      .blurb {
+        p {
+          padding: 5px;
+          max-width: 20rem;
+          line-height: 24px;
+        }
       }
     }
 
@@ -122,19 +126,26 @@ const Container = styled.div`
 `;
 
 const About = () => {
+  const imageRef = React.createRef();
+  useEffect(() => {
+    // Update the document title using the browser API
+    window.addEventListener("scroll", () => {});
+  });
   return (
     <Container>
       <div className="inner">
-        <div className="img-container">
+        <div ref={imageRef} className="img-container">
           <img className="image" alt="me" src={Me}></img>
         </div>
         <div className="about-text">
           <h2>ABOUT ME</h2>
-          <p>
-            Hi It’s Kye. <br /> I am a Software Engineer / Web Developer based
-            in Newcastle-Upon-Tyne. <br /> I love travelling, writing code,
-            eating food and drinking cocktails!
-          </p>
+          <div className="blurb">
+            <p>
+              Hi It’s Kye. <br /> I am a Software Engineer / Web Developer based
+              in Newcastle-Upon-Tyne. <br /> I love travelling, writing code,
+              eating food and drinking cocktails!
+            </p>
+          </div>
           <h2>TECH I USE</h2>
           <div className="tech-segment">
             <ul>
