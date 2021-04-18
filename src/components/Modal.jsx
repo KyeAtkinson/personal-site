@@ -36,7 +36,7 @@ const ModalContainer = styled.div`
     transform: translate(-50%, -50%);
     overflow-y: auto;
     @media screen and (max-width: 1100px) {
-      width: 80vw;
+      width: 90vw;
     }
   }
 
@@ -50,8 +50,8 @@ const ModalContainer = styled.div`
     border: none;
     background: none;
     position: absolute;
-    right: 0;
-    margin: 1rem;
+    right: 10px;
+    top: 10px;
     cursor: pointer;
     font-size: 1.4rem;
   }
@@ -164,7 +164,7 @@ const Modal = ({ closeModal }) => {
             X
           </button>
         </div>
-        <h1>Contact Form</h1>
+        <h1>Contact Me!</h1>
         {loader ? null : (
           <div className="form-container">
             <form className="form" onSubmit={handleSubmit}>
