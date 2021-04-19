@@ -10,18 +10,21 @@ const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 5;
+  pointer-events: none;
 
   .container {
     position: fixed;
     right: 0;
-    bottom: 0;
+    bottom: ${(props) => (props.shift ? 0 : "100%")};
     height: 80px;
     width: 80px;
     background: white;
     border-radius: 50px;
     margin: 1rem;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    transition: 0.4s ease-in-out;
+    pointer-events: fill;
+    overflow: hidden;
 
     :hover {
       transform: scale(1.2);
@@ -32,6 +35,8 @@ const Container = styled.div`
 const Contact = () => {
   const container = useRef(null);
   const [showModal, handleModal] = useState(false);
+  const [shiftContainer, handleShift] = useState(true);
+
   useEffect(() => {
     const anim = lottie.loadAnimation({
       container: container.current,
@@ -53,9 +58,20 @@ const Contact = () => {
       anim.stop();
       handleModal(true);
     });
-  }, []);
+
+    window.onscroll = () => {
+      if (window.scrollY < 200) {
+        handleShift(true);
+      } else {
+        handleShift(false);
+      }
+    };
+  }, [shiftContainer]);
+
+  console.log(shiftContainer);
+
   return (
-    <Container>
+    <Container shift={shiftContainer}>
       {showModal ? <Modal closeModal={() => handleModal(false)} /> : null}
       <div className="container" ref={container}></div>
     </Container>

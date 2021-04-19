@@ -49,6 +49,9 @@ const Container = styled.div`
     }
 
     .about-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       h2 {
         color: white;
         margin: 0;
@@ -166,6 +169,7 @@ const About = () => {
               </li>
             </ul>
           </div>
+          <h2>MY SOCIAL</h2>
         </div>
       </div>
     </Container>

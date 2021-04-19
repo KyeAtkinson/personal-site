@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { db } from ".././firebase";
+import Lottie from "react-lottie";
+import animationData from "../lottie-files/hand.json";
 
 const FadeiN = keyframes`
   from {
@@ -22,6 +24,7 @@ const ModalContainer = styled.div`
   transform: translate(-50%, -50%);
   transition: 1s ease-in-out;
   opacity: 1;
+  pointer-events: fill;
 
   .Modal {
     animation: ${FadeiN} 0.5s linear;
@@ -35,6 +38,7 @@ const ModalContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-y: auto;
+    pointer-events: fill;
     @media screen and (max-width: 1100px) {
       width: 90vw;
     }
@@ -133,6 +137,15 @@ const Modal = ({ closeModal }) => {
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState(false);
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
@@ -144,8 +157,13 @@ const Modal = ({ closeModal }) => {
         message: message,
       })
       .then(() => {
-        alert("your submission was succesful");
-        setLoader(false);
+        setTimeout(function () {
+          setLoader(false);
+        }, 2000);
+        setTimeout(function () {
+          alert("Form has been submitted");
+          closeModal();
+        }, 2300);
       })
       .catch((err) => {
         alert(err.message);
@@ -165,7 +183,9 @@ const Modal = ({ closeModal }) => {
           </button>
         </div>
         <h1>Contact Me!</h1>
-        {loader ? null : (
+        {loader ? (
+          <Lottie options={defaultOptions} height={400} width={400} />
+        ) : (
           <div className="form-container">
             <form className="form" onSubmit={handleSubmit}>
               <label>Name</label>
@@ -173,13 +193,16 @@ const Modal = ({ closeModal }) => {
                 placeholder="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
 
               <label>Email</label>
               <input
                 placeholder="email"
                 value={email}
+                type="email"
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
 
               <label>Message</label>

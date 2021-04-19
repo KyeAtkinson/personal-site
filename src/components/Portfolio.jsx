@@ -11,6 +11,7 @@ const Container = styled.div`
     text-align: center;
     padding: 1rem 0;
     text-transform: uppercase;
+    font-weight: 900;
   }
 `;
 

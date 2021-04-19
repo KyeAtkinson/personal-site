@@ -8,7 +8,7 @@ import Contact from "./components/Contact";
 const AppContainer = styled.div`
   min-height: 100vh;
   background-size: cover;
-  background: linear-gradient(45deg, #30b18b 45%, #3083b1);
+  background: linear-gradient(45deg, #14d89e 45%, #107ab5);
   opacity: ${(props) => (props.ready ? "1" : "0")};
   transition: 1s ease-in-out;
 `;
