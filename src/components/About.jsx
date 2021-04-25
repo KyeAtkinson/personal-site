@@ -6,9 +6,34 @@ import { ReactComponent as JSLogo } from "../images/javascript.svg";
 import { ReactComponent as VueLogo } from "../images/vue.svg";
 import { ReactComponent as StyledCompLogo } from "../images/styled-components.svg";
 import { ReactComponent as LottieLogo } from "../images/lottie.svg";
+import { ReactComponent as LinkedIn } from "../images/linkedin.svg";
+import { ReactComponent as InstagramLogo } from "../images/instagram.svg";
 
 const Container = styled.div`
   padding-top: 10rem;
+
+  .links {
+    position: absolute;
+    left: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    transform: translate(-50%, -200%);
+
+    li {
+      margin: 0 0.5rem;
+      transform: scale(1.2);
+      cursor: pointer;
+
+      :hover {
+        transform: scale(1.4);
+      }
+
+      svg {
+        fill: white;
+      }
+    }
+  }
 
   .inner {
     background: #232323;
@@ -140,6 +165,18 @@ const About = () => {
   });
   return (
     <Container>
+      <ul className="links">
+        <li>
+          <a href="https://www.linkedin.com/in/kye-atkinson/">
+            <LinkedIn />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/kyeatki/">
+            <InstagramLogo />
+          </a>
+        </li>
+      </ul>
       <div className="inner">
         <div ref={imageRef} className="img-container">
           <img className="image" alt="me" src={Me}></img>
