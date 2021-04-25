@@ -68,8 +68,6 @@ const Contact = () => {
     };
   }, [shiftContainer]);
 
-  console.log(shiftContainer);
-
   return (
     <Container shift={shiftContainer}>
       {showModal ? <Modal closeModal={() => handleModal(false)} /> : null}

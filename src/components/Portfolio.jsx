@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PortfolioContainer from "./Portfolio/PortfolioContainer";
 
 const Container = styled.div`
   background: #404040;
@@ -19,7 +20,7 @@ const Portfolio = () => {
   return (
     <Container>
       <h1>Portfolio</h1>
-      <div></div>
+      <PortfolioContainer></PortfolioContainer>
     </Container>
   );
 };
