@@ -19,6 +19,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     transform: translate(-50%, -200%);
+    padding: 0;
 
     li {
       margin: 0 0.5rem;
