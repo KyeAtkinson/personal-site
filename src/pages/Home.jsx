@@ -10,7 +10,7 @@ const AppContainer = styled.div`
   min-height: 100vh;
   background-size: cover;
   background: linear-gradient(45deg, #14d89e 45%, #107ab5);
-  opacity: ${(props) => (props.ready ? "1" : "0")};
+  opacity: ${(props) => (props.ready ? "1" : "1")};
   transition: 1s ease-in-out;
 `;
 const Container = styled.div`
@@ -113,7 +113,7 @@ function Home() {
   function myFunc() {
     setTimeout(function () {
       setDoc(() => true);
-    }, 1000);
+    }, 100);
   }
 
   useEffect(() => {

@@ -57,8 +57,8 @@ const CoffeeButton = () => {
     const beerAnim = lottie.loadAnimation({
       container: beerContainer.current,
       render: "svg",
-      loop: true,
-      autoplay: false,
+      loop: false,
+      autoplay: true,
       animationData: Beer,
       rendererSettings: {
         preserveAspectRatio: "xMidYMid meet",
@@ -66,7 +66,7 @@ const CoffeeButton = () => {
     });
 
     window.addEventListener("load", () => {
-      beerAnim.goToAndStop(52, true);
+      beerAnim.playSegments([46, 55], true);
     });
 
     beerContainer.current.addEventListener("mouseenter", () => {
