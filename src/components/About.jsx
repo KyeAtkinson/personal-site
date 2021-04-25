@@ -82,6 +82,10 @@ const Container = styled.div`
       }
     }
 
+    .tech-h2 {
+      padding-top: 1.2rem;
+    }
+
     .tech-segment {
       display: flex;
       align-items: center;
@@ -149,7 +153,7 @@ const About = () => {
               eating food and drinking cocktails!
             </p>
           </div>
-          <h2>TECH I USE</h2>
+          <h2 className="tech-h2">TECH I USE</h2>
           <div className="tech-segment">
             <ul>
               <li>
@@ -169,7 +173,6 @@ const About = () => {
               </li>
             </ul>
           </div>
-          <h2>MY SOCIAL</h2>
         </div>
       </div>
     </Container>

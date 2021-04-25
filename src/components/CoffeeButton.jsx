@@ -58,16 +58,13 @@ const CoffeeButton = () => {
       container: beerContainer.current,
       render: "svg",
       loop: false,
-      autoplay: true,
+      autoplay: false,
       animationData: Beer,
       rendererSettings: {
         preserveAspectRatio: "xMidYMid meet",
       },
     });
-
-    window.addEventListener("load", () => {
-      beerAnim.playSegments([46, 55], true);
-    });
+    beerAnim.playSegments([46, 55], true);
 
     beerContainer.current.addEventListener("mouseenter", () => {
       beerAnim.playSegments([46, 164], true);
