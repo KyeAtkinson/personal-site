@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./pages/Home";
-import Coffee from "./pages/coffee";
+import Beer from "./pages/Beer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     <div className="app">
       <Router>
         <Route path="/" exact component={Home} />
-        <Route path="/coffee" component={Coffee} />
+        <Route path="/beer" component={Beer} />
       </Router>
     </div>
   );

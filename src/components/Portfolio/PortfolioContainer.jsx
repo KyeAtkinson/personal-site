@@ -9,6 +9,7 @@ const Container = styled.div`
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
+  margin: 2rem;
 
   .box {
     background-size: 100% 100%;
