@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import lottie from "lottie-web";
@@ -12,6 +12,7 @@ const Container = styled.div`
   cursor: pointer;
   transition: 0.3s ease-in-out;
   z-index: 100;
+  opacity: ${(props) => (props.isVisible ? "1" : "0")};
 
   a {
     :visited {
@@ -52,6 +53,8 @@ const Container = styled.div`
 
 const CoffeeButton = () => {
   const beerContainer = useRef(null);
+  const [useHeight, setHeight] = useState(null);
+  const [useOpacity, setOpacity] = useState(true);
 
   useEffect(() => {
     const beerAnim = lottie.loadAnimation({
@@ -75,8 +78,22 @@ const CoffeeButton = () => {
       beerAnim.goToAndStop(10, true);
     });
   });
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setHeight(window.scrollY);
+    });
+
+    if (useHeight > 600) {
+      setOpacity(false);
+    } else {
+      setOpacity(true);
+    }
+
+    console.log(useHeight);
+    console.log(useOpacity);
+  }, [useHeight, useOpacity]);
   return (
-    <Container id="container">
+    <Container id="container" isVisible={useOpacity}>
       <Link to="/beer" style={{ textDecoration: "none", color: "black" }}>
         <div className="text">Donate a beer</div>
         <div className="beer" ref={beerContainer}></div>

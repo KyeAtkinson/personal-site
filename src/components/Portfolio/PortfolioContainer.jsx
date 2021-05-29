@@ -10,6 +10,12 @@ const Container = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
   margin: 2rem;
+  padding-bottom: 3rem;
+
+  @media screen and (max-width: 600px) {
+    padding: 0 0 2rem 0;
+    margin: 0;
+  }
 
   .box {
     background-size: 100% 100%;
